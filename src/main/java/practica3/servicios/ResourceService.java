@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import practica3.repositorios.RecursosRepository;
+import practica3.repositorios.RatingRepository;
 
 @Service
 public class ResourceService {
 
-	@Autowired
-	private RecursosRepository repositorio;
+	/*@Autowired
+	private RatingRepository repositorio;
 	
 	public List<Recursos> getRecursos(){
 		return (List<Recursos>) repositorio.findAll();
@@ -31,5 +31,5 @@ public class ResourceService {
 			
 			return (repositorio.save(r).getIdr());
 		}
-	}
+	}*/
 }

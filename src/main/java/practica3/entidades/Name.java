@@ -8,7 +8,7 @@ public class Name {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long idd;
+	private int idd;
 	@Column
 	private String firstName;
 	@Column
@@ -18,17 +18,18 @@ public class Name {
 	public Name(){
 	}
 
-	public Name(String firstName, String familyName) {
+	public Name(int id,String firstName, String familyName) {
+		this.setIdd(id);
 		this.setFirstName(firstName);
 		this.setFamilyName(familyName);
 	}
 
 
-	public long getIdd() {
+	public int getIdd() {
 		return idd;
 	}
 
-	public void setIdd(long idd) {
+	public void setIdd(int idd) {
 		this.idd = idd;
 	}
 

@@ -8,7 +8,7 @@ public class Movie {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long idd;
+	private int idd;
 	@Column
 	private String title;
 	@Column
@@ -27,11 +27,11 @@ public class Movie {
 	}
 
 
-	public long getIdd() {
+	public int getIdd() {
 		return idd;
 	}
 
-	public void setIdd(long idd) {
+	public void setIdd(int idd) {
 		this.idd = idd;
 	}
 

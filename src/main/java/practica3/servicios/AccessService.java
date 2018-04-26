@@ -6,12 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import practica3.repositorios.AccesoRepository;
 
 @Service
 public class AccessService {
 
-	@Autowired
+	/*@Autowired
 	private AccesoRepository repositorio;
 	
 	public List<Accesos> getAccesos(){
@@ -80,6 +79,6 @@ public class AccessService {
 		resultado.add(numRecurso);
 		resultado.add(recursos);
 		return resultado;
-	}
+	}*/
 	
 }

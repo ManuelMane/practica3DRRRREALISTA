@@ -5,24 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import practica3.repositorios.TiempoRepository;
+import practica3.entidades.Time;
+import practica3.repositorios.TimeRepository;
 
 @Service
-public class TimeServices extends Tiempo{
+public class TimeServices extends Time{
 
-	@Autowired
-	private TiempoRepository repositorio;
+	/*@Autowired
+	private TimeRepository repositorio;
 	
-	public List<Tiempo> getTiempo(){
-		return (List<Tiempo>) repositorio.findAll();
+	public List<Time> getTime(){
+		return (List<Time>) repositorio.findAll();
 	}
 	
-	public void guardarTiempo(Tiempo t){
+	public void guardarTime(Time t){
 		repositorio.save(t);
 	}
 	
-	public long comprobarTiempo(Tiempo t){
-		Tiempo time = repositorio.findByAnioAndDiaAndMesAndHora(t.getAnio(),t.getDia(),t.getMes(),t.getHora());
+	public long comprobarTime(Time t){
+		Time time = repositorio.findByAnioAndDiaAndMesAndHora(t.getAnio(),t.getDia(),t.getMes(),t.getHora());
 		if (time!= null){
 			long id = time.getIdt();
 			return id;
@@ -30,5 +31,5 @@ public class TimeServices extends Tiempo{
 		else{
 			return (repositorio.save(t).getIdt());
 		}
-	}
+	}*/
 }

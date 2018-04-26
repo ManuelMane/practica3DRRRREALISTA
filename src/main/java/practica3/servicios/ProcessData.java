@@ -10,12 +10,10 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import etl.rolap.entidades.*;
-import practica3.entidades.Datos;
 
 @Component
 public class ProcessData {
-	@Autowired
+	/*@Autowired
 	private TimeServices servicioTiempo;
 	@Autowired
  	private AccessService servicioAcceso;
@@ -104,5 +102,5 @@ public class ProcessData {
 		time.setAnio(Integer.parseInt(fecha.substring(7,11)));
 		time.setHora(Integer.parseInt(fecha.substring(12,14)));
 		return time;		
-	}
+	}*/
 }
