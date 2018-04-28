@@ -4,10 +4,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Table_Names")
-public class Name {
+public class User {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idd;
 	@Column
 	private String firstName;
@@ -15,10 +14,10 @@ public class Name {
 	private String familyName;
 
 
-	public Name(){
+	public User(){
 	}
 
-	public Name(int id,String firstName, String familyName) {
+	public User(int id, String firstName, String familyName) {
 		this.setIdd(id);
 		this.setFirstName(firstName);
 		this.setFamilyName(familyName);
@@ -51,6 +50,6 @@ public class Name {
 
 	@Override
 	public String toString() {
-		return "Name [idd=" + getIdd() + ", First Name=" + firstName + ", Family Name=" + familyName+"]";
+		return "User [idd=" + getIdd() + ", First User=" + firstName + ", Family User=" + familyName+"]";
 	}
 }

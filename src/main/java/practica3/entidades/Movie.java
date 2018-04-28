@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class Movie {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idd;
 	@Column
 	private String title;

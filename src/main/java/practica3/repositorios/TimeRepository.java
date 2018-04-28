@@ -8,7 +8,8 @@ import practica3.entidades.Time;
 
 @RepositoryRestResource
 public interface TimeRepository extends CrudRepository<Time,Integer>{
-
+    List<Time> findAll();
+    Time findByIdd(int id);
 
 	
 }

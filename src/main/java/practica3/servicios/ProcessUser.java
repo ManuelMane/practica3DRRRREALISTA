@@ -1,22 +1,24 @@
 package practica3.servicios;
 
 
-import org.springframework.boot.SpringApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import practica3.App;
-import practica3.entidades.Name;
-
+import practica3.entidades.User;
+import practica3.repositorios.UserRepository;
 import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
+
 
 @Component
-public class ProcessName {
-
-    @PostConstruct
+public class ProcessUser {
+    @Autowired
+    private UserRepository repositorio;
+    //@PostConstruct
     public void process(){
+
+
         int contAccT = 0;
         String firstLine = "nameId,firstName,familyName";
 
@@ -26,8 +28,12 @@ public class ProcessName {
 
                 if(!line.equals(firstLine)){
                     String atributtes[] = line.split(",");
-                    Name a = new Name(Integer.parseInt(atributtes[0]),atributtes[1],atributtes[2]);
-                    System.out.println(a);
+                    User currentUser = new User(Integer.parseInt(atributtes[0]),atributtes[1],atributtes[2]);
+
+                    //repositorio.save(currentUser);
+                    //System.out.println(currentUser);
+
+
                 }
             }//while
         } catch (IOException e) {
@@ -36,7 +42,7 @@ public class ProcessName {
     }//process
 
     public static void main(String[] args) {
-        ProcessName a = new ProcessName();
+        ProcessUser a = new ProcessUser();
         a.process();
     }
 

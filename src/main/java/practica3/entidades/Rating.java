@@ -8,48 +8,48 @@ public class Rating {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long idd;
+	private int idd;
 	@Column
-	private long userId;
+	private int userId;
 	@Column
-	private long movieId;
+	private int movieId;
 	@Column
 	private double rating;
 	@Column
 	private int timestamp;
 
 
-	public Rating(){
+	public Rating(int userId, int movieId, String atributte, String s){
 	}
 
-	public Rating(long userId, long movieId, double rating,int timestamp) {
+	public Rating(int userId, int movieId, double rating,int timestamp) {
 		this.setUserId(userId);
 		this.setMovieId(movieId);
 		this.setRating(rating);
 		this.setTimestamp(timestamp);
 	}
 
-	public long getIdd() {
+	public int getIdd() {
 		return idd;
 	}
 
-	public void setIdd(long idd) {
+	public void setIdd(int idd) {
 		this.idd = idd;
 	}
 
-	public long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	public long getMovieId() {
+	public int getMovieId() {
 		return movieId;
 	}
 
-	public void setMovieId(long movieId) {
+	public void setMovieId(int movieId) {
 		this.movieId = movieId;
 	}
 

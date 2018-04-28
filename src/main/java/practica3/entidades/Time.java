@@ -8,7 +8,7 @@ public class Time {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long idd;
+	private int idd;
 	@Column
 	private String DateNum;
 	@Column
@@ -67,11 +67,11 @@ public class Time {
 
 
 
-	public long getIdd() {
+	public int getIdd() {
 		return idd;
 	}
 
-	public void setIdd(long idd) {
+	public void setIdd(int idd) {
 		this.idd = idd;
 	}
 
