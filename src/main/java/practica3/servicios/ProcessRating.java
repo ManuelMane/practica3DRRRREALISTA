@@ -21,7 +21,7 @@ public class ProcessRating {
         int contAccT = 0;
         String firstLine = "userId,movieId,rating,timestamp";
 
-        try (BufferedReader br = new BufferedReader(new FileReader("Table_Ratings.csv"))) { //mas-accesos-servidor-nitflex.log
+        try (BufferedReader br = new BufferedReader(new FileReader("data/Table_Ratings.csv"))) { //mas-accesos-servidor-nitflex.log
             String line;
             while ((line = br.readLine()) != null) {  //Vamos linea a linea separando la informacion
 

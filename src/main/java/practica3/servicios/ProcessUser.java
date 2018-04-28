@@ -22,7 +22,7 @@ public class ProcessUser {
         int contAccT = 0;
         String firstLine = "nameId,firstName,familyName";
 
-        try (BufferedReader br = new BufferedReader(new FileReader("Table_Names.csv"))) { //mas-accesos-servidor-nitflex.log
+        try (BufferedReader br = new BufferedReader(new FileReader("data/Table_Names.csv"))) { //mas-accesos-servidor-nitflex.log
             String line;
             while ((line = br.readLine()) != null) {  //Vamos linea a linea separando la informacion
 

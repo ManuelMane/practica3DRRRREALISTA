@@ -24,7 +24,7 @@ public class ProcessMovie {
 
         String firstLine = "movieId,title,genres";
 
-        try (BufferedReader br = new BufferedReader(new FileReader("Table_Movies.csv"))) { //mas-accesos-servidor-nitflex.log
+        try (BufferedReader br = new BufferedReader(new FileReader("data/Table_Movies.csv"))) { //mas-accesos-servidor-nitflex.log
             String line;
             while ((line = br.readLine()) != null) {  //Vamos linea a linea separando la informacion
 
@@ -124,7 +124,13 @@ public class ProcessMovie {
 
     //3 Elements
     public String getTitle3Elements (String[] atributtes){
-        return atributtes[1].split("\\(")[0].replace("\"","").replace("\'","");
+
+        if(((atributtes[1].split("\\(").length==3)&&(atributtes[1].split("\\(")[0].contains(")")))){
+            return atributtes[1].split("\\(")[1].replace("\"","").replace("\'","");
+        }
+        else{
+            return atributtes[1].split("\\(")[0].replace("\"","").replace("\'","");
+        }
     }
     public String getDate3Elements (String[] atributtes){
 

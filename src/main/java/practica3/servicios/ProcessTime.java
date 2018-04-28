@@ -24,7 +24,7 @@ public class ProcessTime {
         int contAccT = 0;
         String firstLine = "DateNum,Date,YearMonthNum,Calendar_Quarter,MonthNum,MonthName,MonthShortName,WeekNum,DayNumOfYear,DayNumOfMonth,DayNumOfWeek,DayName,DayShortName,Quarter,YearQuarterNum,DayNumOfQuarter";
 
-        try (BufferedReader br = new BufferedReader(new FileReader("Table_Time.csv"))) { //mas-accesos-servidor-nitflex.log
+        try (BufferedReader br = new BufferedReader(new FileReader("data/Table_Time.csv"))) { //mas-accesos-servidor-nitflex.log
             String line;
             while ((line = br.readLine()) != null) {  //Vamos linea a linea separando la informacion
 
