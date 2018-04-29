@@ -17,20 +17,22 @@ public class ProcessRating {
     //@PostConstruct
     public void process(){
 
-
+        int contTotal = 0;
         int contAccT = 0;
         String firstLine = "userId,movieId,rating,timestamp";
 
         try (BufferedReader br = new BufferedReader(new FileReader("data/Table_Ratings.csv"))) { //mas-accesos-servidor-nitflex.log
             String line;
             while ((line = br.readLine()) != null) {  //Vamos linea a linea separando la informacion
+                if(contTotal<3000) {
+                    if (!line.equals(firstLine)) {
+                        contTotal++;
+                        String atributtes[] = line.split(",");
+                        Rating currentRating = new Rating(Integer.parseInt(atributtes[0]), Integer.parseInt(atributtes[1]), Double.parseDouble(atributtes[2]), Integer.parseInt(atributtes[3]));
+                        repositorio.save(currentRating);
+                        //System.out.println(currentRating);
 
-                if(!line.equals(firstLine)){
-                    String atributtes[] = line.split(",");
-                    Rating currentRating = new Rating(Integer.parseInt(atributtes[0]),Integer.parseInt(atributtes[1]),Double.parseDouble(atributtes[2]),Integer.parseInt(atributtes[3]));
-                    repositorio.save(currentRating);
-                    //System.out.println(currentRating);
-
+                    }
                 }
             }//while
         } catch (IOException e) {

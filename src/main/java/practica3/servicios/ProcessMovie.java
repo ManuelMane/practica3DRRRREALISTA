@@ -16,102 +16,103 @@ public class ProcessMovie {
     @Autowired
     private MovieRepository repositorio;
 
-    @PostConstruct
+    //@PostConstruct
     public void process(){
         int contTotal = 0;
         int cont = 0;
-
 
         String firstLine = "movieId,title,genres";
 
         try (BufferedReader br = new BufferedReader(new FileReader("data/Table_Movies.csv"))) { //mas-accesos-servidor-nitflex.log
             String line;
             while ((line = br.readLine()) != null) {  //Vamos linea a linea separando la informacion
+                if(contTotal<100){
+                    if(!line.equals(firstLine)){
+                        String atributtes[] = line.split(",");
 
-                if(!line.equals(firstLine)){
-                    String atributtes[] = line.split(",");
+                        ++contTotal;
 
-                    ++contTotal;
+                        if(atributtes.length==3){
+                            ++cont;
 
-                    if(atributtes.length==3){
-                        ++cont;
+                            int id = Integer.parseInt(atributtes[0]);
+                            String title = this.getTitle3Elements(atributtes);
+                            String date = this.getDate3Elements(atributtes);
+                            String genres = atributtes[2];
 
-                        int id = Integer.parseInt(atributtes[0]);
-                        String title = this.getTitle3Elements(atributtes);
-                        String date = this.getDate3Elements(atributtes);
-                        String genres = atributtes[2];
-
-                        Movie currentMovie = new Movie(id,title,date,genres);
-                        repositorio.save(currentMovie);
+                            Movie currentMovie = new Movie(id,title,date,genres);
+                            repositorio.save(currentMovie);
                         /*
                         if(!date.contains("1")&&!date.contains("2")){
                             System.out.println(line);
                             System.out.println(currentMovie);
                         }
                         */
+                        }
+                        if(atributtes.length==4){
+
+                            ++cont;
+
+                            //System.out.println(line);
+                            int id = Integer.parseInt(atributtes[0]);
+                            String title = this.getTitle4Elements(atributtes);
+                            String date = this.getDate4Elements(atributtes);
+                            String genres = atributtes[3];
+
+                            Movie currentMovie = new Movie(id,title,date,genres);
+                            repositorio.save(currentMovie);
+
+                            //System.out.println(currentMovie);
+                        }
+
+                        if(atributtes.length==5){
+                            ++cont;
+                            //System.out.println(line);
+                            int id = Integer.parseInt(atributtes[0]);
+                            String title = this.getTitle5Elements(atributtes);
+                            String date = this.getDate5Elements(atributtes);
+                            String genres = atributtes[4];
+
+                            Movie currentMovie = new Movie(id,title,date,genres);
+                            repositorio.save(currentMovie);
+                            //System.out.println(currentMovie);
+
+                        }
+
+                        if(atributtes.length==6){
+                            ++cont;
+                            //System.out.println(line);
+
+                            int id = Integer.parseInt(atributtes[0]);
+                            String title = this.getTitle6Elements(atributtes);
+                            String date = this.getDate6Elements(atributtes);
+                            String genres = atributtes[5];
+
+                            Movie currentMovie = new Movie(id,title,date,genres);
+                            repositorio.save(currentMovie);
+                            //System.out.println(currentMovie);
+
+                        }
+
+                        if(atributtes.length==8){
+                            ++cont;
+                            //System.out.println(line);
+
+                            int id = Integer.parseInt(atributtes[0]);
+                            String title = this.getTitle8Elements(atributtes);
+                            String date = this.getDate8Elements(atributtes);
+                            String genres = atributtes[7];
+
+                            Movie currentMovie = new Movie(id,title,date,genres);
+                            repositorio.save(currentMovie);
+
+                            //System.out.println(currentMovie);
+
+                        }
+
                     }
-                    if(atributtes.length==4){
-
-                        ++cont;
-
-                        //System.out.println(line);
-                        int id = Integer.parseInt(atributtes[0]);
-                        String title = this.getTitle4Elements(atributtes);
-                        String date = this.getDate4Elements(atributtes);
-                        String genres = atributtes[3];
-
-                        Movie currentMovie = new Movie(id,title,date,genres);
-                        repositorio.save(currentMovie);
-
-                        //System.out.println(currentMovie);
-                    }
-
-                    if(atributtes.length==5){
-                        ++cont;
-                        //System.out.println(line);
-                        int id = Integer.parseInt(atributtes[0]);
-                        String title = this.getTitle5Elements(atributtes);
-                        String date = this.getDate5Elements(atributtes);
-                        String genres = atributtes[4];
-
-                        Movie currentMovie = new Movie(id,title,date,genres);
-                        repositorio.save(currentMovie);
-                        //System.out.println(currentMovie);
-
-                    }
-
-                    if(atributtes.length==6){
-                        ++cont;
-                        //System.out.println(line);
-
-                        int id = Integer.parseInt(atributtes[0]);
-                        String title = this.getTitle6Elements(atributtes);
-                        String date = this.getDate6Elements(atributtes);
-                        String genres = atributtes[5];
-
-                        Movie currentMovie = new Movie(id,title,date,genres);
-                        repositorio.save(currentMovie);
-                       //System.out.println(currentMovie);
-
-                    }
-
-                    if(atributtes.length==8){
-                        ++cont;
-                        //System.out.println(line);
-
-                        int id = Integer.parseInt(atributtes[0]);
-                        String title = this.getTitle8Elements(atributtes);
-                        String date = this.getDate8Elements(atributtes);
-                        String genres = atributtes[7];
-
-                        Movie currentMovie = new Movie(id,title,date,genres);
-                        repositorio.save(currentMovie);
-
-                        //System.out.println(currentMovie);
-
-                    }
-
                 }
+
             }//while
         } catch (IOException e) {
             e.printStackTrace();

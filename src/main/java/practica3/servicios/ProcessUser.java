@@ -20,20 +20,25 @@ public class ProcessUser {
 
 
         int contAccT = 0;
+        int contTotal = 0;
         String firstLine = "nameId,firstName,familyName";
 
         try (BufferedReader br = new BufferedReader(new FileReader("data/Table_Names.csv"))) { //mas-accesos-servidor-nitflex.log
             String line;
             while ((line = br.readLine()) != null) {  //Vamos linea a linea separando la informacion
+                if(contTotal<100) {
+                    if (!line.equals(firstLine)) {
 
-                if(!line.equals(firstLine)){
-                    String atributtes[] = line.split(",");
-                    User currentUser = new User(Integer.parseInt(atributtes[0]),atributtes[1],atributtes[2]);
+                        contTotal++;
 
-                    //repositorio.save(currentUser);
-                    //System.out.println(currentUser);
+                        String atributtes[] = line.split(",");
+                        User currentUser = new User(Integer.parseInt(atributtes[0]), atributtes[1], atributtes[2]);
+
+                        repositorio.save(currentUser);
+                        //System.out.println(currentUser);
 
 
+                    }
                 }
             }//while
         } catch (IOException e) {

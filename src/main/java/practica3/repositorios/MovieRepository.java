@@ -8,6 +8,6 @@ import practica3.entidades.Movie;
 
 @RepositoryRestResource
 public interface MovieRepository extends CrudRepository<Movie,Integer>{
-
+    Movie findOne(int id);
 
 }

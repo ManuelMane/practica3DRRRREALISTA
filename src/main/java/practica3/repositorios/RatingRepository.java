@@ -11,4 +11,5 @@ import practica3.entidades.Rating;
 public interface RatingRepository extends CrudRepository<Rating,Integer>{
     List<Rating> findAll();
     Rating findByIdd(int id);
+    List<Rating> findByUserId(int id);
 }
